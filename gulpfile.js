@@ -1,5 +1,9 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var concat = require('gulp-concat');
+var sourcemaps = require('gulp-sourcemaps');
+var autoprefixer = require('gulp-autoprefixer');
+var cleanCSS = require('gulp-clean-css');
 var browserSync = require('browser-sync').create();
 
 gulp.task('hello', function () {
@@ -8,7 +12,15 @@ gulp.task('hello', function () {
 
 gulp.task('sass', function () {
   return gulp.src('app/scss/**/*.scss')
-    .pipe(sass())
+    .pipe(sourcemaps.init())
+      .pipe(sass())
+      .pipe(autoprefixer())
+      .pipe(concat('compile.css'))
+      .pipe(cleanCSS({debug: true}, (details) => {
+          console.log(`${details.name}: ${details.stats.originalSize}`);
+          console.log(`${details.name}: ${details.stats.minifiedSize}`);
+      }))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('app/css'))
     .pipe(browserSync.reload({
       stream: true
@@ -28,3 +40,5 @@ gulp.task('watch', ['browserSync', 'sass'], function () {
   gulp.watch('app/*.html', browserSync.reload);
   gulp.watch('app/js/**/*.js', browserSync.reload);
 });
+
+gulp.task('default', ['watch']);
