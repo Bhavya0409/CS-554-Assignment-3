@@ -6,10 +6,6 @@ var autoprefixer = require('gulp-autoprefixer');
 var cleanCSS = require('gulp-clean-css');
 var browserSync = require('browser-sync').create();
 
-gulp.task('hello', function () {
-  console.log('hello');
-});
-
 gulp.task('sass', function () {
   return gulp.src('app/scss/**/*.scss')
     .pipe(sourcemaps.init())
