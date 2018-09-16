@@ -14,32 +14,16 @@ gulp.task("sass", function() {
     .pipe(autoprefixer())
     .pipe(concat("compile.css"))
     .pipe(
-      cleanCSS({ debug: true }, details => {
-        console.log(`${details.name}: ${details.stats.originalSize}`);
-        console.log(`${details.name}: ${details.stats.minifiedSize}`);
-      })
+      cleanCSS({ debug: true })
     )
     .pipe(sourcemaps.write())
     .pipe(gulp.dest("public/css"))
-    .pipe(
-      browserSync.reload({
-        stream: true
-      })
-    );
 });
 
-gulp.task("browserSync", function() {
-  browserSync.init({
-    server: {
-      baseDir: "public"
-    }
-  });
-});
-
-gulp.task("watch", ["browserSync", "sass"], function() {
+gulp.task("watch", ["sass"], function() {
   gulp.watch("public/scss/**/*.scss", ["sass"]);
-  gulp.watch("public/*.html", browserSync.reload);
-  gulp.watch("public/js/**/*.js", browserSync.reload);
+  // gulp.watch("public/*.html", browserSync.reload);
+  // gulp.watch("public/js/**/*.js", browserSync.reload);
 });
 
 gulp.task("default", ["watch"]);

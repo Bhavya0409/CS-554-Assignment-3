@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "lol"
+    "test": "lol",
+    "start": "concurrently \"node server.js\" \"gulp\""
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +22,7 @@
     "tota11y": "^0.1.6"
   },
   "dependencies": {
+    "concurrently": "^4.0.1",
     "express": "^4.16.3"
   }
 }
