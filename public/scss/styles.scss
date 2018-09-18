@@ -1,40 +1,40 @@
 .page {
   display: flex;
-}
 
-div.container {
-  margin-top: 60px;
-  padding: 0 30px;
-}
+  .nav {
+    position: fixed;
+    display: initial;
 
-nav.nav {
-  position: fixed;
-  display: initial;
+    .nav-link {
+      color: #0072ee;
+    }
 
-  .nav-link {
-    color: #0072ee;
+    @media (max-width: 767px) {
+      display: flex;
+      left: 20%;
+    }
   }
 
-  @media (max-width: 767px) {
-    display: flex;
-    left: 20%;
-  }
-}
+  .container {
+    margin-top: 60px;
+    padding: 0 30px;
 
-h1.card-title {
-  font-size: 20px;
-}
+    .card {
+      width: 100%;
+      margin-bottom: 50px;
+      img {
+        padding: 20px;
+      }
 
-.card {
-  width: 100%;
-  margin-bottom: 50px;
-  img {
-    padding: 20px;
-  }
+      .card-body {
+        .card-title {
+          font-size: 20px;
+        }
 
-  .card-body {
-    button {
-      background-color: #0072ee;
+        button {
+          background-color: #0072ee;
+        }
+      }
     }
   }
 }
