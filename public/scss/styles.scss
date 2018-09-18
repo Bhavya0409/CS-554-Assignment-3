@@ -10,10 +10,18 @@ nav.nav {
   position: fixed;
   display: initial;
 
+  .nav-link {
+    color: #0072ee;
+  }
+
   @media (max-width: 767px) {
     display: flex;
     left: 20%;
   }
+}
+
+h1.card-title {
+  font-size: 20px;
 }
 
 .card {
@@ -21,5 +29,11 @@ nav.nav {
   margin-bottom: 50px;
   img {
     padding: 20px;
+  }
+
+  .card-body {
+    button {
+      background-color: #0072ee;
+    }
   }
 }
