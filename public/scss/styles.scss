@@ -2,8 +2,18 @@
   display: flex;
 }
 
-nav {
+.container {
+  margin-top: 60px;
+}
+
+nav.nav {
   position: fixed;
+  display: initial;
+
+  @media (max-width: 767px) {
+    display: flex;
+    left: 20%;
+  }
 }
 
 .card {
