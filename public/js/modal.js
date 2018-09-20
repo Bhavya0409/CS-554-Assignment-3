@@ -1,4 +1,4 @@
-$('#exampleModal').on('show.bs.modal', function(event) {
+$('#contentModal').on('show.bs.modal', function(event) {
 	const button = $(event.relatedTarget); // Button that triggered the modal
 	const description = button.data('description'); // Extract info from data-* attributes
 	const title = button.data('title');
